@@ -1,0 +1,31 @@
+<div>
+  <input-speach-enabled
+    [focusinCustom]="tabData[0]"
+    (focusoutCustom)="focusout($any($event))"
+    (executeGlobalCommand)="executingGlobalCommand($any($event))"
+  ></input-speach-enabled>
+</div>
+<div style="margin-top: 20px">
+  <input-speach-enabled
+    [focusinCustom]="tabData[1]"
+    (focusoutCustom)="focusout($any($event))"
+    (executeGlobalCommand)="executingGlobalCommand($any($event))"
+  ></input-speach-enabled>
+</div>
+
+<div style="margin-top: 20px">
+  <button-speach-enabled
+    [focusinCustom]="tabData[2]"
+    (focusoutCustom)="focusout($any($event))"
+    (functionExecuteCustom)="executeFunction($any($event))"
+    (executeGlobalCommand)="executingGlobalCommand($any($event))"
+  ></button-speach-enabled>
+</div>
+<span
+  [ngClass]="listerning ? 'app-speech-input-btn' : 'app-mute-input-btn'"
+  (click)="listen()"
+></span>
+
+{{ globalCommand}}
+
+<!-- <button (click)="test()">test</button> -->
