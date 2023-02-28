@@ -12,10 +12,18 @@
     (executeGlobalCommand)="executingGlobalCommand($any($event))"
   ></input-speach-enabled>
 </div>
+<div style="margin-top: 20px">
+  <dropdown
+  [focusinCustom]="tabData[2]"
+  (focusoutCustom)="focusout($any($event))"
+  (functionExecuteCustom)="executeFunction($any($event))"
+  (executeGlobalCommand)="executingGlobalCommand($any($event))"
+  ></dropdown>
+</div>
 
 <div style="margin-top: 20px">
   <button-speach-enabled
-    [focusinCustom]="tabData[2]"
+    [focusinCustom]="tabData[3]"
     (focusoutCustom)="focusout($any($event))"
     (functionExecuteCustom)="executeFunction($any($event))"
     (executeGlobalCommand)="executingGlobalCommand($any($event))"
