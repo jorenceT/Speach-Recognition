@@ -1,0 +1,60 @@
+<div class="p-6">
+  <img src="../assets/hrb_logo.svg" />
+</div>
+<div class="mx-60">
+  <div class="px-4 m-4 sm:px-0">
+    <h3 class="text-2xl font-bold leading-6 text-gray-900">TaxPro question or response:</h3>
+  </div>
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="mt-5 md:col-span-2 md:mt-0">
+      <div class="overflow-hidden shadow sm:rounded-md">
+        <div class="bg-white px-4 py-5 sm:p-6">
+          <div class="grid grid-cols-6 gap-6">
+            <div class="col-span-4 sm:col-span-4">
+              <textarea
+                class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-green-600 focus:ring-green-500"
+                #control type="text" [(ngModel)]="service.speakMessage"></textarea>
+              <div class="block place-content-center">
+                <span class="app-speak-input-btn" (click)="speak()"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+          <button
+            class="inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2" (click)="clear('speakMessage')">Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mx-60">
+  <div class="px-4 m-4 sm:px-0">
+    <h3 class="text-2xl font-bold leading-6 text-gray-900">your response or question:</h3>
+  </div>
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="mt-5 md:col-span-2 md:mt-0">
+      <div class="overflow-hidden shadow sm:rounded-md">
+        <div class="bg-white px-4 py-5 sm:p-6">
+          <div class="grid grid-cols-6 gap-6">
+            <div class="col-span-4 sm:col-span-4">
+              <div class="app-speech-input">
+                <textarea
+                  class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-green-600 focus:ring-green-500"
+                  #control [(ngModel)]="service.message"></textarea>
+              </div>
+              <div class="block place-content-center">
+                <span [ngClass]="listerning ? 'app-speech-input-btn' : 'app-mute-input-btn'" (click)="listen()"></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+          <button (click)="clear('message')" 
+            class="inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

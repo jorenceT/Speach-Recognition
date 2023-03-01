@@ -4,6 +4,7 @@ import {
   Component,
   Output,
 } from '@angular/core';
+import { MessageHandlerService } from '../../service/message-handler.service';
 import { ControlerBase } from '../base/controler-base';
 import {
   commentHandler,
@@ -13,26 +14,25 @@ import {
 import { controlType, inputType, TabData } from '../Interface/tab-data-model';
 
 @Component({
-  selector: 'main-page',
-  templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.css'],
+  selector: 'client-page',
+  templateUrl: './client-page.component.html',
+  styleUrls: ['./client-page.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MainPageComponent {
-
-  Taxpro = false;
+export class ClientPageComponent extends ControlerBase {
 
   constructor(
+    private serviceInit: MessageHandlerService,
     private refInit: ChangeDetectorRef
   ) {
+    super(
+      serviceInit,
+      refInit);
   }
+  public tabIndex = 0;
+  public name = '';
+  public listerning = false;
+  public type = '';
+  command = '';
 
-
-  setScreen(data: string) {
-    if (data == "Taxpro") {
-      this.Taxpro = true;
-    } else {
-      this.Taxpro = false;
-    }
-  }
 }
