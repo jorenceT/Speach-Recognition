@@ -33,29 +33,4 @@ export class InputComponent extends ControlerBase {
     this.controlType = controlType.input;
   }
 
-  // test() {
-  //   var val = this.globalMessageHandler('focus zero');
-  //   console.log(val);
-  //   var val = this.globalMessageHandler('focus one');
-  //   console.log(val);
-  // }
-
-  protected localCommandHandler(message: string) {
-    if (commentHandler(['clear', 'delete', 'erase'], message)) {
-      this.message = '';
-    } else {
-      if (this.type === inputType.checkbox) {
-        message = message.replace(/\s/g, '').toLowerCase();
-        each(CHECKBOX_ACCURATE_SELECTION, (value, key) => {
-          if (includes(value, message)) {
-            this.isChecked = key;
-            return false;
-          }
-          return true;
-        })
-      }
-      this.message = message;
-      this.ref.detectChanges();
-    }
-  }
 }

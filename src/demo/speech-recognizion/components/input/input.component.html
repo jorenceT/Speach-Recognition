@@ -1,12 +1,4 @@
 <div class="app-speech-input">
-  <input *ngIf="type!=='checkbox'"
-    class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-green-600 focus:ring-green-500" #control
+  <input class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-green-600 focus:ring-green-500" #control
     [type]="type" [value]="message" />
-  <span *ngIf="type==='checkbox'">
-    <input #control [type]="type" [value]="message" [checked]="isChecked==='true'">
-    <label> {{name}}</label>
-  </span>
-  <span [ngClass]="listerning ? 'app-speech-input-btn' : 'app-mute-input-btn'" (click)="listen()"></span>
-
-  <!-- <button (click)="test()">test</button> -->
 </div>
