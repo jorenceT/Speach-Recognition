@@ -6,7 +6,6 @@ import {
 import { each, find, includes } from 'lodash-es';
 import { DROPDOWN_ACCURATE_SELECTION, DROPDOWN_ITEMS } from '../../constants/dropdown.constants';
 import { ControlerBase } from '../base/controler-base';
-import { commentHandler } from '../base/helper-class';
 import { controlType } from '../Interface/tab-data-model';
 
 @Component({

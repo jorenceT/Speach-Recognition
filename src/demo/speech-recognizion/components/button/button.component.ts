@@ -5,7 +5,6 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { VoiceRecognizion } from '../../services/voice-recognizion.service';
 import { ControlerBase } from '../base/controler-base';
 import { commentHandler } from '../base/helper-class';
 import { controlType } from '../Interface/tab-data-model';
@@ -27,11 +26,9 @@ export class ButtonComponent extends ControlerBase {
   public controlType: any;
 
   constructor(
-    // private serviceInt: VoiceRecognizion,
-     private refInt: ChangeDetectorRef
+    private refInt: ChangeDetectorRef
   ) {
     super(
-      //  serviceInt, 
       refInt);
     this.controlType = controlType.button;
   }

@@ -10,9 +10,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-// import { SpeechRecognitionService } from 'projects/ngx-speech-recognition/src/public_api';
-import { VoiceRecognizion } from '../../services/voice-recognizion.service';
-import { controlType, TabData } from '../Interface/tab-data-model';
+import { controlType, TabData, VoiceRecognizion } from '../Interface/tab-data-model';
 import { commentHandler, GLOBAL_COMMAND } from './helper-class';
 declare var webkitSpeechRecognition: any;
 @Directive()
@@ -24,7 +22,7 @@ export abstract class ControlerBase {
   public abstract message: string;
   public abstract previousFinalData: string;
   public abstract controlType: any;
-  public speachService:any
+  public speachService: VoiceRecognizion;
   
 
   @Input() set focusinCustom(data: TabData) {
@@ -49,29 +47,9 @@ export abstract class ControlerBase {
   @Output() executeGlobalCommand = new EventEmitter<string>();
 
   constructor(
-    // private speachService: VoiceRecognizion,
     protected ref: ChangeDetectorRef
   ) {
-
-    // this.speachService.continuous(true);
-    // this.speachService.interimResults(true);
-    // this.speachService.onresult((e: any) => {
-    //   var message = e.results[e.results.length - 1].item(0).transcript;
-    //   this.messageHandler(message, e);
-    //   if (e.results[e.results.length - 1].isFinal) {
-    //     this.previousFinalData = this.message;
-    //   }
-    //   this.ref.detectChanges();
-    // });
-    // this.speachService.onend((e: any) => {
-    //   this.listerning = false;
-    //   this.ref.detectChanges();
-    // });
-
     this.speachService = new webkitSpeechRecognition();
-
-    this.speachService.continuous = true;
-    this.speachService.interimResults = true;
     this.speachService.continuous = true;
     this.speachService.interimResults = true;
     this.speachService.onresult = (e: any) => {

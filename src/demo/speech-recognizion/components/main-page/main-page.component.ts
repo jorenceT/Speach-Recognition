@@ -4,7 +4,6 @@ import {
   Component,
   Output,
 } from '@angular/core';
-import { VoiceRecognizion } from '../../services/voice-recognizion.service';
 import { ControlerBase } from '../base/controler-base';
 import {
   commentHandler,

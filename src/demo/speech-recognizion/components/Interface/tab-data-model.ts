@@ -20,3 +20,13 @@ export enum controlType {
   dropdown = 4,
   checkbox = 5
 }
+
+
+export interface VoiceRecognizion {
+  continuous: boolean;
+  interimResults: boolean;
+  onresult: Function;
+  onend: Function;
+  start(): void;
+  stop(): void;
+}

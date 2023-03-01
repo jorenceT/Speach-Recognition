@@ -7,7 +7,6 @@ import {
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { each, includes } from 'lodash-es';
 import { CHECKBOX_ACCURATE_SELECTION } from '../../constants/input.constants';
-import { VoiceRecognizion } from '../../services/voice-recognizion.service';
 import { ControlerBase } from '../base/controler-base';
 import { commentHandler } from '../base/helper-class';
 import { controlType, inputType, TabData } from '../Interface/tab-data-model';
@@ -28,12 +27,9 @@ export class InputComponent extends ControlerBase {
   public controlType: any;
   public isChecked = '';
   constructor(
-    // private serviceInt: VoiceRecognizion,
     private refInt: ChangeDetectorRef
   ) {
-    super(
-      // serviceInt, 
-      refInt);
+    super(refInt);
     this.controlType = controlType.input;
   }
 

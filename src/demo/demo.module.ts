@@ -6,7 +6,6 @@ import { DemoComponent } from './demo.component';
 
 import { SpeechRecognizionSubModule } from '../demo/speech-recognizion';
 import { MainPageComponent } from './speech-recognizion/components/main-page/main-page.component';
-import { VoiceRecognizion } from './speech-recognizion/services/voice-recognizion.service';
 
 @NgModule({
   declarations: [DemoComponent, MainPageComponent],
@@ -16,7 +15,6 @@ import { VoiceRecognizion } from './speech-recognizion/services/voice-recognizio
     RouterModule,
     SpeechRecognizionSubModule,
   ],
-  providers: [VoiceRecognizion],
   bootstrap: [DemoComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
