@@ -3,7 +3,7 @@
 </div>
 <div class="mx-60">
   <div class="px-4 m-4 sm:px-0">
-    <h3 class="text-2xl font-bold leading-6 text-gray-900">Speach to text</h3>
+    <h3 class="text-2xl font-bold leading-6 text-gray-900">Speech to text</h3>
   </div>
   <div class="md:grid md:grid-cols-3 md:gap-6">
     <div class="mt-5 md:col-span-2 md:mt-0">
@@ -12,8 +12,8 @@
           <div class="grid grid-cols-6 gap-6">
             <div class="col-span-4 sm:col-span-4">
               <div class="app-speech-input">
-                <input class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-green-600 focus:ring-green-500" #control
-                  [type]="type" [(ngModel)]="message" />
+                <textarea class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-green-600 focus:ring-green-500" #control
+                  [(ngModel)]="message"></textarea>
               </div>
                 <div class="block place-content-center">
                   <span [ngClass]="listerning ? 'app-speech-input-btn' : 'app-mute-input-btn'" (click)="listen()"></span>
@@ -32,7 +32,7 @@
 </div>
 <div class="mx-60">
   <div class="px-4 m-4 sm:px-0">
-    <h3 class="text-2xl font-bold leading-6 text-gray-900">Text to speach</h3>
+    <h3 class="text-2xl font-bold leading-6 text-gray-900">Text to speech</h3>
   </div>
   <div class="md:grid md:grid-cols-3 md:gap-6">
     <div class="mt-5 md:col-span-2 md:mt-0">
@@ -40,8 +40,8 @@
         <div class="bg-white px-4 py-5 sm:p-6">
           <div class="grid grid-cols-6 gap-6">
             <div class="col-span-4 sm:col-span-4">
-              <input class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-green-600 focus:ring-green-500" #control
-              type="text" [(ngModel)]="speakMessage" />
+              <textarea class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-green-600 focus:ring-green-500" #control
+              type="text" [(ngModel)]="speakMessage"></textarea>
                 
                 <div class="block place-content-center">
                   <span class="app-speak-input-btn" (click)="speak()"></span>
