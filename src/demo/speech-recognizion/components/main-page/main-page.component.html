@@ -25,7 +25,7 @@
             <div class="col-span-4 sm:col-span-4">
               <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
               <input-speach-enabled [focusinCustom]="tabData[2]" (focusoutCustom)="focusout($any($event))"
-              (executeGlobalCommand)="executingGlobalCommand($any($event))"></input-speach-enabled>
+                (executeGlobalCommand)="executingGlobalCommand($any($event))"></input-speach-enabled>
             </div>
 
             <div class="col-span-4 sm:col-span-3">
@@ -36,9 +36,15 @@
                 (executeGlobalCommand)="executingGlobalCommand($any($event))"></dropdown>
             </div>
           </div>
+          <div style="margin-top: 20px">
+            <input-speach-enabled [inputType]="'checkbox'" [focusinCustom]="tabData[4]"
+              (focusoutCustom)="focusout($any($event))" (executeGlobalCommand)="executingGlobalCommand($any($event))">
+            </input-speach-enabled>
+          </div>
+
         </div>
         <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-          <button-speach-enabled [focusinCustom]="tabData[4]" (focusoutCustom)="focusout($any($event))"
+          <button-speach-enabled [focusinCustom]="tabData[5]" (focusoutCustom)="focusout($any($event))"
             (functionExecuteCustom)="executeFunction($any($event))"
             (executeGlobalCommand)="executingGlobalCommand($any($event))"></button-speach-enabled>
           <span [ngClass]="listerning ? 'app-speech-input-btn' : 'app-mute-input-btn'" (click)="listen()"></span>

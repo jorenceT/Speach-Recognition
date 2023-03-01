@@ -9,12 +9,14 @@ export enum inputType {
   text = 'text',
   number = 'numebr',
   button = 'button',
-  dropdown = 'dropdown'
+  dropdown = 'dropdown',
+  checkbox = 'checkbox'
 }
 
 export enum controlType {
   input = 1,
   button = 2,
   global = 3,
-  dropdown = 4
+  dropdown = 4,
+  checkbox = 5
 }

@@ -5,10 +5,12 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { each, includes } from 'lodash-es';
+import { CHECKBOX_ACCURATE_SELECTION } from '../../constants/input.constants';
 import { VoiceRecognizion } from '../../services/voice-recognizion.service';
 import { ControlerBase } from '../base/controler-base';
 import { commentHandler } from '../base/helper-class';
-import { controlType } from '../Interface/tab-data-model';
+import { controlType, inputType, TabData } from '../Interface/tab-data-model';
 
 @Component({
   selector: 'input-speach-enabled',
@@ -24,7 +26,7 @@ export class InputComponent extends ControlerBase {
   public message = '';
   public previousFinalData = '';
   public controlType: any;
-
+  public isChecked = '';
   constructor(
     // private serviceInt: VoiceRecognizion,
     private refInt: ChangeDetectorRef
@@ -46,7 +48,18 @@ export class InputComponent extends ControlerBase {
     if (commentHandler(['clear', 'delete', 'erase'], message)) {
       this.message = '';
     } else {
+      if (this.type === inputType.checkbox) {
+        message = message.replace(/\s/g, '').toLowerCase();
+        each(CHECKBOX_ACCURATE_SELECTION, (value, key) => {
+          if (includes(value, message)) {
+            this.isChecked = key;
+            return false;
+          }
+          return true;
+        })
+      }
       this.message = message;
+      this.ref.detectChanges();
     }
   }
 }
