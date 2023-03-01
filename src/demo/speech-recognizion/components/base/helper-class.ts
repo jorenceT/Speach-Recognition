@@ -53,6 +53,7 @@ export function wordCorrection(word: string) {
 const WORD_CORRECTION_LIST: any = {
   ['hero']: 'zero',
   ['tap']: 'tab',
+  [' jordans']: 'Jorence'
 };
 
 export const GLOBAL_COMMAND = {

@@ -17,7 +17,6 @@ import { controlType } from '../Interface/tab-data-model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent extends ControlerBase {
-  public command = 'command';
   public tabIndex = 0;
   public name = '';
   public listerning = false;
@@ -46,7 +45,6 @@ export class InputComponent extends ControlerBase {
   protected localCommandHandler(message: string) {
     if (commentHandler(['clear', 'delete', 'erase'], message)) {
       this.message = '';
-      this.command = 'clear';
     } else {
       this.message = message;
     }

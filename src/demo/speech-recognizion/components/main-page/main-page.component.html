@@ -1,39 +1,49 @@
-<div>
-  <input-speach-enabled
-    [focusinCustom]="tabData[0]"
-    (focusoutCustom)="focusout($any($event))"
-    (executeGlobalCommand)="executingGlobalCommand($any($event))"
-  ></input-speach-enabled>
+<div class="p-6">
+  <img src="../assets/hrb_logo.svg" />
 </div>
-<div style="margin-top: 20px">
-  <input-speach-enabled
-    [focusinCustom]="tabData[1]"
-    (focusoutCustom)="focusout($any($event))"
-    (executeGlobalCommand)="executingGlobalCommand($any($event))"
-  ></input-speach-enabled>
-</div>
-<div style="margin-top: 20px">
-  <dropdown
-  [focusinCustom]="tabData[2]"
-  (focusoutCustom)="focusout($any($event))"
-  (functionExecuteCustom)="executeFunction($any($event))"
-  (executeGlobalCommand)="executingGlobalCommand($any($event))"
-  ></dropdown>
-</div>
+<div class="mx-60">
+  <div class="px-4 m-4 sm:px-0">
+    <h3 class="text-2xl font-bold leading-6 text-gray-900">Personal Information</h3>
+  </div>
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="mt-5 md:col-span-2 md:mt-0">
+      <div class="overflow-hidden shadow sm:rounded-md">
+        <div class="bg-white px-4 py-5 sm:p-6">
+          <div class="grid grid-cols-6 gap-6">
+            <div class="col-span-4 sm:col-span-4">
+              <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
+              <input-speach-enabled [focusinCustom]="tabData[0]" (focusoutCustom)="focusout($any($event))"
+                (executeGlobalCommand)="executingGlobalCommand($any($event))"></input-speach-enabled>
+            </div>
 
-<div style="margin-top: 20px">
-  <button-speach-enabled
-    [focusinCustom]="tabData[3]"
-    (focusoutCustom)="focusout($any($event))"
-    (functionExecuteCustom)="executeFunction($any($event))"
-    (executeGlobalCommand)="executingGlobalCommand($any($event))"
-  ></button-speach-enabled>
+            <div class="col-span-4 sm:col-span-4">
+              <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
+              <input-speach-enabled [focusinCustom]="tabData[1]" (focusoutCustom)="focusout($any($event))"
+                (executeGlobalCommand)="executingGlobalCommand($any($event))"></input-speach-enabled>
+            </div>
+
+            <div class="col-span-4 sm:col-span-4">
+              <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
+              <input-speach-enabled [focusinCustom]="tabData[2]" (focusoutCustom)="focusout($any($event))"
+              (executeGlobalCommand)="executingGlobalCommand($any($event))"></input-speach-enabled>
+            </div>
+
+            <div class="col-span-4 sm:col-span-3">
+              <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
+
+              <dropdown [focusinCustom]="tabData[3]" (focusoutCustom)="focusout($any($event))"
+                (functionExecuteCustom)="executeFunction($any($event))"
+                (executeGlobalCommand)="executingGlobalCommand($any($event))"></dropdown>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+          <button-speach-enabled [focusinCustom]="tabData[4]" (focusoutCustom)="focusout($any($event))"
+            (functionExecuteCustom)="executeFunction($any($event))"
+            (executeGlobalCommand)="executingGlobalCommand($any($event))"></button-speach-enabled>
+          <span [ngClass]="listerning ? 'app-speech-input-btn' : 'app-mute-input-btn'" (click)="listen()"></span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<span
-  [ngClass]="listerning ? 'app-speech-input-btn' : 'app-mute-input-btn'"
-  (click)="listen()"
-></span>
-
-{{ globalCommand}}
-
-<!-- <button (click)="test()">test</button> -->

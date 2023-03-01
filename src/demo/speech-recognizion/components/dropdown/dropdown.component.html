@@ -1,6 +1,5 @@
-Voice received : {{speechReceived}}
 <div class="app-speech-input">
-    <select #control>
+    <select #control class="mt-1 w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-green-600 focus:outline-none focus:ring-green-500 sm:text-sm">
         <option value=""></option>
         <option *ngFor="let item of demoItem" [value]="item.value" [selected]="selectedOption===item.value">
             {{item.display}}
