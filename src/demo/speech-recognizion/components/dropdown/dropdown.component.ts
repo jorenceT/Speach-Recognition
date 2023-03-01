@@ -3,8 +3,8 @@ import {
     ChangeDetectorRef,
     Component
 } from '@angular/core';
-import { find } from 'lodash-es';
-import { DROPDOWN_ITEMS } from '../../constants/dropdown.constants';
+import { each, find, includes } from 'lodash-es';
+import { DROPDOWN_ACCURATE_SELECTION, DROPDOWN_ITEMS } from '../../constants/dropdown.constants';
 import { ControlerBase } from '../base/controler-base';
 import { commentHandler } from '../base/helper-class';
 import { controlType } from '../Interface/tab-data-model';
@@ -34,13 +34,15 @@ export class DropDownComponent extends ControlerBase {
     }
     protected localCommandHandler(message: string) {
         this.speechReceived = message;
-        if (commentHandler(['clear', 'delete', 'erase'], message)) {
-            this.message = '';
-            this.command = 'clear';
-        } else {
-            message = message.replace(/\s/g, '').toLowerCase();
-            this.selectedOption = find(this.demoItem, { value: message }) ? message : '';
-            this.ref.detectChanges();
-        }
+        message = message.replace(/\s/g, '').toLowerCase();
+        each(DROPDOWN_ACCURATE_SELECTION, (value, key) => {
+            if (includes(value, message)) {
+                message = key;
+                return false;
+            }
+            return true;
+        })
+        this.selectedOption = find(this.demoItem, { value: message }) ? message : '';
+        this.ref.detectChanges();
     }
 }

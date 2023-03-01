@@ -20,7 +20,7 @@ import { controlType, inputType, TabData } from '../Interface/tab-data-model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainPageComponent extends ControlerBase {
-  
+
   constructor(
     // private serviceInt: VoiceRecognizion,
     private refInit: ChangeDetectorRef
@@ -43,8 +43,9 @@ export class MainPageComponent extends ControlerBase {
     { index: 0, active: false, type: inputType.text },
     { index: 1, active: false, type: inputType.text },
     { index: 2, active: false, type: inputType.text },
-    { index: 2, active: false, type: inputType.dropdown },
-    { index: 3, active: false, type: inputType.button, name: 'stop' },
+    { index: 3, active: false, type: inputType.dropdown },
+    { index: 4, active: false, type: inputType.checkbox, name: 'Taxpayer' },
+    { index: 5, active: false, type: inputType.button, name: 'Stop' },
   ];
 
   currentActiveField = 0;

@@ -5,18 +5,26 @@ export const DROPDOWN_ITEMS = [
     },
     {
         'display': 'FR - France',
-        'value': 'fr'
+        'value': 'france'
     },
     {
         'display': 'GG - Georgia',
-        'value': 'gg'
+        'value': 'georgia'
     },
     {
         'display': 'GM - Germany',
-        'value': 'gm'
+        'value': 'germany'
     },
     {
         'display': 'GR - Greece',
-        'value': 'gr'
+        'value': 'greece'
     },
 ]
+
+
+export const DROPDOWN_ACCURATE_SELECTION: any = {
+    'france': ['fr', 'friends'],
+    'greece': ['gr'],
+    'germany': ['gm'],
+    'georgia': ['gg']
+};
