@@ -55,3 +55,30 @@
     opacity: 0.2;
   }
 }
+
+.app-speak-input-btn {
+  justify-content: center;
+  position:absolute;
+  height: 2.8rem;
+  width: 2.8rem;
+  line-height: 1;
+  border: 0;
+  border-radius: 0.25rem;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  background: transparent
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Speaker_Icon.svg/750px-Speaker_Icon.svg.png?20190828181118')
+    no-repeat center center / auto 65%;
+}
+
+.app-speak-input-btn:hover {
+  opacity: 1;
+}
+
+.app-mute-input-btn:hover {
+  opacity: 1;
+}
+
+.app-speech-input-btn:hover {
+  opacity: 1;
+}

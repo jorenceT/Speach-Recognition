@@ -12,9 +12,10 @@
           <div class="grid grid-cols-6 gap-6">
             <div class="col-span-4 sm:col-span-4">
               <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-              <input-speach-enabled [focusinCustom]="tabData[0]" (focusoutCustom)="focusout($any($event))"
-                (executeGlobalCommand)="executingGlobalCommand($any($event))"></input-speach-enabled>
-                
+              <div class="app-speech-input">
+                <input class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-green-600 focus:ring-green-500" #control
+                  [type]="type" [(ngModel)]="message" />
+              </div>
                 <div class="block place-content-center">
                   <span [ngClass]="listerning ? 'app-speech-input-btn' : 'app-mute-input-btn'" (click)="listen()"></span>
                 </div>
@@ -41,15 +42,14 @@
           <div class="grid grid-cols-6 gap-6">
             <div class="col-span-4 sm:col-span-4">
               <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-              <input-speach-enabled [focusinCustom]="tabData[0]" (focusoutCustom)="focusout($any($event))"
-                (executeGlobalCommand)="executingGlobalCommand($any($event))"></input-speach-enabled>
+              <input class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-green-600 focus:ring-green-500" #control
+              type="text" [(ngModel)]="speakMessage" />
                 
                 <div class="block place-content-center">
-                  <span [ngClass]="listerning ? 'app-speech-input-btn' : 'app-mute-input-btn'" (click)="speak()"></span>
+                  <span class="app-speak-input-btn" (click)="speak()"></span>
                 </div>
             </div>
           </div>
-
         </div>
         <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
           <button 

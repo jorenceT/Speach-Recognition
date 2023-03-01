@@ -24,6 +24,7 @@ export abstract class ControlerBase {
   public abstract previousFinalData: string;
   public abstract controlType: any;
   public speachService: VoiceRecognizion;
+  public speakMessage = '';
   
 
   @Input() set focusinCustom(data: TabData) {
@@ -73,7 +74,7 @@ export abstract class ControlerBase {
   }
 
   speak() {
-    const utterThis = new SpeechSynthesisUtterance(this.message);
+    const utterThis = new SpeechSynthesisUtterance(this.speakMessage);
     synth.speak(utterThis);
   }
 

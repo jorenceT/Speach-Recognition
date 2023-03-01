@@ -6,6 +6,7 @@ import { DemoComponent } from './demo.component';
 
 import { SpeechRecognizionSubModule } from '../demo/speech-recognizion';
 import { MainPageComponent } from './speech-recognizion/components/main-page/main-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [DemoComponent, MainPageComponent],
@@ -14,6 +15,7 @@ import { MainPageComponent } from './speech-recognizion/components/main-page/mai
     CommonModule,
     RouterModule,
     SpeechRecognizionSubModule,
+    FormsModule
   ],
   bootstrap: [DemoComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
