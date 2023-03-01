@@ -12,19 +12,21 @@
           <div class="grid grid-cols-6 gap-6">
             <div class="col-span-4 sm:col-span-4">
               <div class="app-speech-input">
-                <textarea class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-green-600 focus:ring-green-500" #control
-                  [(ngModel)]="message"></textarea>
+                <textarea
+                  class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-green-600 focus:ring-green-500"
+                  #control [(ngModel)]="message">
+                  </textarea>
               </div>
-                <div class="block place-content-center">
-                  <span [ngClass]="listerning ? 'app-speech-input-btn' : 'app-mute-input-btn'" (click)="listen()"></span>
-                </div>
+              <div class="block place-content-center">
+                <span [ngClass]="listerning ? 'app-speech-input-btn' : 'app-mute-input-btn'" (click)="listen()"></span>
+              </div>
             </div>
           </div>
 
         </div>
         <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-          <button 
-          class="inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Stop</button>
+          <button (click)="clearSpeechToText()"
+            class="inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Clear</button>
         </div>
       </div>
     </div>
@@ -40,18 +42,20 @@
         <div class="bg-white px-4 py-5 sm:p-6">
           <div class="grid grid-cols-6 gap-6">
             <div class="col-span-4 sm:col-span-4">
-              <textarea class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-green-600 focus:ring-green-500" #control
-              type="text" [(ngModel)]="speakMessage"></textarea>
-                
-                <div class="block place-content-center">
-                  <span class="app-speak-input-btn" (click)="speak()"></span>
-                </div>
+              <textarea
+                class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-green-600 focus:ring-green-500"
+                #control [(ngModel)]="speakMessage">
+              </textarea>
+
+              <div class="block place-content-center">
+                <span class="app-speak-input-btn" (click)="speak()"></span>
+              </div>
             </div>
           </div>
         </div>
         <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-          <button 
-          class="inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Stop</button>
+          <button (click)="clearTextToSpeech()"
+            class="inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Clear</button>
         </div>
       </div>
     </div>

@@ -24,12 +24,13 @@ export abstract class ControlerBase {
   public abstract previousFinalData: string;
   public abstract controlType: any;
   public speachService: VoiceRecognizion;
+  public receivedMessage = '';
   public speakMessage = '';
-  
+
 
   @Input() set focusinCustom(data: TabData) {
-    this.name = data.name?? '';
-    this.type = data.type?? '';
+    this.name = data.name ?? '';
+    this.type = data.type ?? '';
     if (data.active) {
       this.controlRef?.nativeElement?.focus();
       this.start();
@@ -38,7 +39,7 @@ export abstract class ControlerBase {
         this.stop();
       }
     }
-    this.tabIndex = data.index?? null;
+    this.tabIndex = data.index ?? null;
     this.ref.detectChanges();
   }
 
@@ -55,13 +56,20 @@ export abstract class ControlerBase {
     this.speachService.continuous = true;
     this.speachService.interimResults = true;
     this.speachService.onresult = (e: any) => {
-      this.message = e.results[e.results.length - 1].item(0).transcript;
+      this.message = "";
+      for (const line of e.results) {
+        this.message += line[0].transcript.trim() + ". ";
+      }
       this.ref.detectChanges();
     };
     this.speachService.onend = (e: any) => {
       this.listerning = false;
       this.ref.detectChanges();
     };
+  }
+
+  concatString() {
+    this.message = this.message.concat(this.receivedMessage);
   }
 
   listen() {
@@ -89,5 +97,14 @@ export abstract class ControlerBase {
       this.listerning = false;
       this.speachService.stop();
     }
+  }
+
+  clearTextToSpeech() {
+    this.speakMessage = '';
+  }
+  clearSpeechToText() {
+    this.message = '';
+    this.listerning = false;
+    this.speachService.stop();
   }
 }
