@@ -28,6 +28,7 @@ export class TaxProPageComponent extends ControlerBase {
     super(
       serviceInit, 
       refInit);
+      this.taxPro = true;
   }
   public listerning = false;
 }

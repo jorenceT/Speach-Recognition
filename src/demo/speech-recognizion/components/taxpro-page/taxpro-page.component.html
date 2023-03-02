@@ -13,7 +13,7 @@
             <div class="col-span-4 sm:col-span-4">
               <div class="app-speech-input">
                 <textarea class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-green-600 focus:ring-green-500" #control
-                  [(ngModel)]="service.message"></textarea>
+                  [(ngModel)]="service.message" (change)="updateMessage()"></textarea>
               </div>
                 <div class="block place-content-center">
                   <span [ngClass]="listerning ? 'app-speech-input-btn' : 'app-mute-input-btn'" (click)="listen()"></span>
@@ -41,10 +41,10 @@
         <div class="bg-white px-4 py-5 sm:p-6">
           <div class="grid grid-cols-6 gap-6">
             <div class="col-span-4 sm:col-span-4">
-              <textarea class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-green-600 focus:ring-green-500" #control
-              type="text" [(ngModel)]="service.speakMessage"></textarea>
+              <textarea [disabled]=true class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-green-600 focus:ring-green-500" #control
+              type="text" (change)="updateSpeakMessage()" [(ngModel)]="service.speakMessage"></textarea>
                 <div class="block place-content-center">
-                  <span class="app-speak-input-btn" (click)="speak()"></span>
+                  <span class="app-speak-input-btn" (click)="speak(service.speakMessage)"></span>
                 </div>
             </div>
           </div>

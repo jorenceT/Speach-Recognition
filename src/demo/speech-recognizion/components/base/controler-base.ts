@@ -19,7 +19,10 @@ const synth = window.speechSynthesis;
 export abstract class ControlerBase {
   public abstract listerning: boolean;
   public speachService: VoiceRecognizion;
-  
+  public taxPro: boolean | undefined;
+  private channel: any;
+
+
 
 
 
@@ -33,15 +36,24 @@ export abstract class ControlerBase {
     this.speachService.continuous = true;
     this.speachService.interimResults = true;
     this.speachService.onresult = (e: any) => {
-      this.service.message = e.results[e.results.length - 1].item(0).transcript;
+      if (this.taxPro) {
+        this.service.message = e.results[e.results.length - 1].item(0).transcript;
+      } else {
+        this.service.speakMessage = e.results[e.results.length - 1].item(0).transcript;
+      }
       this.ref.detectChanges();
     };
     this.speachService.onend = (e: any) => {
       this.listerning = false;
       this.ref.detectChanges();
     };
-  }
+    // this.channel = new BroadcastChannel('app-data');
+    // this.channel.addEventListener('message', (event: any) => {
+    //   // console.log(event.data);
+    //   this.service.message = event.data;
+    // });
 
+  }
   listen() {
     if (this.listerning) {
       this.stop();
@@ -50,11 +62,20 @@ export abstract class ControlerBase {
     }
   }
 
-  speak() {
-    const utterThis = new SpeechSynthesisUtterance(this.service.speakMessage);
+  speak(message: string) {
+    const utterThis = new SpeechSynthesisUtterance(message);
     synth.speak(utterThis);
   }
 
+  updateMessage() {
+    // const channel = new BroadcastChannel('taxpro-message');
+    // channel.postMessage(this.service.message);
+  }
+
+  updateSpeakMessage() {
+    // const channel = new BroadcastChannel('client-data');
+    // channel.postMessage(this.service.message);
+  }
   start() {
     if (!this.listerning) {
       this.listerning = true;

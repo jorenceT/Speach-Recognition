@@ -28,6 +28,7 @@ export class ClientPageComponent extends ControlerBase {
     super(
       serviceInit,
       refInit);
+      this.taxPro = false;
   }
   public tabIndex = 0;
   public name = '';
